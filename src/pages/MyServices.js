@@ -1,11 +1,33 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from "react";
 import MyServiceCard from "../components/MyServiceCard";
-import ServiceCard from "../components/ServiceCard";
 import SpNavbar from "../components/SpNavbar";
 import SpSidebar from "../components/SpSidebar";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
 
 const auth_token = localStorage.getItem("auth_token");
+
+async function deleteCategories(id) {
+  const response = await fetch(
+    `https://service-finder-backup.herokuapp.com/api/services/delete/${id}`,
+    {
+      method:'DELETE',
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${auth_token}`,
+      },
+    }
+  );
+
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || "Something went wrong");
+  }
+
+  return data.data;
+}
 
 async function getCategories() {
   const response = await fetch(
@@ -156,6 +178,7 @@ function MyServices() {
           setLoading(false);
         }
       }).catch((result) => {
+        setCount(count + 1);
         setLoading(false);
         setError(result.message);
       });
@@ -196,6 +219,27 @@ function MyServices() {
     setPrice(e.price);
     setStore(e.store);
     setImage(null);
+  }
+
+  function deleteHandler(id){
+    const MySwal = withReactContent(Swal);
+
+    MySwal.fire({
+      icon:'info',
+      title: 'Do you want to delete Service?',
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        deleteCategories(id).then((result)=> {
+          setCount(count + 1);
+          Swal.fire('Deleted!', '', 'success');
+        }).catch((error)=> {
+          Swal.fire('Something went wrong!', '', 'danger');
+        });
+      }
+    })
   }
 
   return (
@@ -316,7 +360,7 @@ function MyServices() {
                       >
                         <i className="fa fa-edit"></i>
                       </button>
-                      <button className="btn btn-danger btn-sm">
+                      <button onClick={deleteHandler.bind(this, e.id)} className="btn btn-danger btn-sm">
                         <i className="fa fa-trash"></i>
                       </button>
                     </>

@@ -4,9 +4,28 @@ import ServiceCard from '../components/ServiceCard';
 import SpNavbar from '../components/SpNavbar';
 import SpSidebar from '../components/SpSidebar';
 
-async function totalCustomers() {
+const auth_token = localStorage.getItem("auth_token");
 
-    const auth_token = localStorage.getItem("auth_token");
+async function getServices() {
+    const response = await fetch(
+      "https://service-finder-backup.herokuapp.com/api/services",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${auth_token}`,
+        },
+      }
+    );
+  
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.message || "Something went wrong");
+    }
+  
+    return data.data;
+  }
+
+async function totalCustomers() {
 
     const response = await fetch("https://service-finder-backup.herokuapp.com/api/total-number", {
         headers: {
@@ -28,7 +47,9 @@ function SpDashboard() {
     const [totalCustomer, setTotalCustomer] = useState();
     const [totalServiceProvider, setTotalServiceProvider] = useState(0);
     const [totalServices, setTotalServices] = useState(0);
+    const [services, setServices] = useState([]);
     const [count, setCount] = useState(0);
+    const [search, setSearch] = useState("");
 
     useEffect(()=> {
         totalCustomers().then((result)=> {
@@ -38,9 +59,19 @@ function SpDashboard() {
         });
     }, [count]);
 
+    useEffect(()=> {
+        getServices().then((result)=> {
+            setServices(result);
+        });
+    }, []);
+
     setTimeout(function () {
         setCount(count + 1);
       }, 5000);
+
+      function searchHandler(){
+        
+      }
 
   return (
     <div className="mb-5">
@@ -56,29 +87,23 @@ function SpDashboard() {
                 <div className="row">
                     <div className="col-md-4">
                         <div className="input-group">
-                        <input type="text" className="form-control" placeholder="Search" aria-label="Recipient's username" />
-                        <button className="btn btn-outline-primary" type="button" id="button-addon2"><i className="fa fa-search"></i></button>
+                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="form-control" placeholder="Search" aria-label="Recipient's username" />
+                        <button onClick={searchHandler} className="btn btn-outline-primary" type="button" id="button-addon2"><i className="fa fa-search"></i></button>
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="row row-cols-1 row-cols-md-3 g-3">
+                        {services.length > 0 && services.map(e => 
                         <ServiceCard
-                        image={'https://random.imagecdn.app/500/350'}
-                        title={'Hair Rebond'}
-                        price={'160.00'}
-                        description={'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.'}
-                        category={'salon'}
-                        />
-                        <ServiceCard 
-                        image={'https://random.imagecdn.app/500/350'}
-                        title={'Aircon '}
-                        price={'160.00'}
-                        description={'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.'}
-                        category={'salon'}
-                        />
+                        image={e.image}
+                        title={e.service}
+                        price={e.price}
+                        description={e.description}
+                        category={e.category}
+                        />)}
+                        
                     </div>
-
                 </div>
             </div>
         </div>
