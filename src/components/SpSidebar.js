@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 
-function CustomerSidebar() {
+function SpSidebar() {
 
     function logoutHandler()
     {
@@ -19,10 +19,10 @@ function CustomerSidebar() {
                 </div>
                 <div className="offcanvas-body">
                     <div className="d-grid gap-2 mt-2">
-                        <a href="/customer-dashboard" className="btn btn-primary py-3"><i className="fa fa-dashboard"></i> Dashboard</a>
-                        <a href="/my-service-request" className="btn btn-primary py-3"><i className="fa fa-clipboard"></i> My Service Requests</a>
-                        <a href="/service-provider-services" className="btn btn-primary py-3"><i className="fa fa-users"></i> Services</a>
-                        <a href="/customer-services-post" className="btn btn-primary py-3"><i className="fa fa-search"></i> Service Posts</a>
+                        <a href="/sp-dashboard" className="btn btn-primary py-3"><i className="fa fa-dashboard"></i> Dashboard</a>
+                        <a href="/my-services" className="btn btn-primary py-3"><i className="fa fa-clipboard"></i> My Services</a>
+                        <a href="/customer-transaction" className="btn btn-primary py-3"><i className="fa fa-users"></i> Customer Transaction</a>
+                        <a href="/customer-services-post" className="btn btn-primary py-3"><i className="fa fa-search"></i> Customer Posts</a>
                         <button href="#" onClick={logoutHandler} className="btn btn-primary py-3"><i className="fa fa-sign-out"></i> Logout</button>
                     </div>
                 </div>
@@ -31,4 +31,4 @@ function CustomerSidebar() {
     )
 }
 
-export default CustomerSidebar
+export default SpSidebar

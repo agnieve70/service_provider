@@ -7,6 +7,8 @@ import CustomerServicePost from "./pages/CustomerServicePost";
 import HireService from "./pages/HireService";
 import ServicePostDetail from "./pages/ServicePostDetail";
 import MyServiceRequest from "./pages/MyServiceRequest";
+import SpDashboard from "./pages/SpDashboard";
+import MyServices from "./pages/MyServices";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
                 <Route path="/hire-service/:id" element={<HireService />} />
                 <Route path="/service-post-detail/:id" element={<ServicePostDetail />} />
                 <Route path="/my-service-request" element={<MyServiceRequest />} />
+                <Route path="/sp-dashboard" element={<SpDashboard />} />
+                <Route path="/my-services" element={<MyServices />} />
                 <Route
                     path="*"
                     element={

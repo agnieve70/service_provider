@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react'
 import CardIcon from '../components/CardIcon';
-import CustomerNavbar from '../components/CustomerNavbar';
-import CustomerSidebar from '../components/CustomerSidebar';
 import ServiceCard from '../components/ServiceCard';
+import SpNavbar from '../components/SpNavbar';
+import SpSidebar from '../components/SpSidebar';
 
 async function totalCustomers() {
 
@@ -23,13 +23,13 @@ async function totalCustomers() {
     return data;
 }
 
-function CustomerDashboardPage() {
-    
+function SpDashboard() {
+
     const [totalCustomer, setTotalCustomer] = useState();
     const [totalServiceProvider, setTotalServiceProvider] = useState(0);
     const [totalServices, setTotalServices] = useState(0);
     const [count, setCount] = useState(0);
-    
+
     useEffect(()=> {
         totalCustomers().then((result)=> {
             setTotalCustomer(result.no_customer);
@@ -42,10 +42,10 @@ function CustomerDashboardPage() {
         setCount(count + 1);
       }, 5000);
 
-    return (
-        <div className="mb-5">
-            <CustomerNavbar />
-            <CustomerSidebar />
+  return (
+    <div className="mb-5">
+            <SpNavbar />
+            <SpSidebar />
             <div className="container">
                 <h1 className="text-secondary">Dashboard</h1>
                 <div className="row mt-4 mb-3">
@@ -63,7 +63,7 @@ function CustomerDashboardPage() {
                 </div>
                 <div className="row">
                     <div className="row row-cols-1 row-cols-md-3 g-3">
-                        <ServiceCard 
+                        <ServiceCard
                         image={'https://random.imagecdn.app/500/350'}
                         title={'Hair Rebond'}
                         price={'160.00'}
@@ -82,7 +82,7 @@ function CustomerDashboardPage() {
                 </div>
             </div>
         </div>
-    )
+  )
 }
 
-export default CustomerDashboardPage
+export default SpDashboard
