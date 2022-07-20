@@ -9,6 +9,8 @@ import ServicePostDetail from "./pages/ServicePostDetail";
 import MyServiceRequest from "./pages/MyServiceRequest";
 import SpDashboard from "./pages/SpDashboard";
 import MyServices from "./pages/MyServices";
+import Signup from "./pages/Signup";
+import SpCustomerServicePost from "./pages/SpCustomerServicePost";
 
 function App() {
   return (
@@ -21,11 +23,13 @@ function App() {
                 <Route path="/customer-services/:id" element={<ServiceDetail />} />
                 <Route path="/service-provider-services" element={<ServiceProviderServices />} />
                 <Route path="/customer-services-post" element={<CustomerServicePost />} />
+                <Route path="/sp-customer-services-post" element={<SpCustomerServicePost />} />
                 <Route path="/hire-service/:id" element={<HireService />} />
                 <Route path="/service-post-detail/:id" element={<ServicePostDetail />} />
                 <Route path="/my-service-request" element={<MyServiceRequest />} />
                 <Route path="/sp-dashboard" element={<SpDashboard />} />
                 <Route path="/my-services" element={<MyServices />} />
+                <Route path="/signup" element={<Signup />} />
                 <Route
                     path="*"
                     element={

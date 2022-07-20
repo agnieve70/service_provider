@@ -123,6 +123,7 @@ function LoginPage() {
                   <button type="submit" className="py-2 btn btn-primary">
                     LOGIN
                   </button>
+                  <span>Wants to be a member? <a href="/signup">Click Here</a></span>
                   {isMobile ? (
                     <p>
                       Not a member?

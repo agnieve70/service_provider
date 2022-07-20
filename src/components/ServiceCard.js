@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ServiceCard(props) {
     return (
         <div className="col mb-2">
-            <Link to='/service-detail/1' className='' style={{textDecoration:'none'}}>
+            <Link to={`/service-detail/${props.id}`} className='' style={{textDecoration:'none'}}>
             <div className="card h-100">
                 <img src={props.image} className="card-img-top" alt="..." />
                 <div className="card-body">

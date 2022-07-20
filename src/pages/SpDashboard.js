@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import CardIcon from '../components/CardIcon';
-import ServiceCard from '../components/ServiceCard';
+import MyServiceCard from '../components/MyServiceCard';
 import SpNavbar from '../components/SpNavbar';
 import SpSidebar from '../components/SpSidebar';
 
@@ -94,14 +94,14 @@ function SpDashboard() {
                 </div>
                 <div className="row">
                     <div className="row row-cols-1 row-cols-md-3 g-3">
-                        {services.length > 0 && services.map(e => 
-                        <ServiceCard
-                        image={e.image}
+                        {services.length > 0 ? services.map(e => 
+                        <MyServiceCard
+                        image={`https://service-finder-backup.herokuapp.com/file_storage/service_images/${e.image}`}
                         title={e.service}
                         price={e.price}
                         description={e.description}
                         category={e.category}
-                        />)}
+                        />) : <p>No Service Found</p>}
                         
                     </div>
                 </div>
