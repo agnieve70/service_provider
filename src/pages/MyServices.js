@@ -176,6 +176,7 @@ function MyServices() {
           setCount(count + 1);
           clearFields();
           setLoading(false);
+          window.location.href='/my-services';
         }
       }).catch((result) => {
         setCount(count + 1);
@@ -191,7 +192,8 @@ function MyServices() {
             setCount(count + 1);
             clearFields();
             setLoading(false);
-          }
+          window.location.href='/my-services';
+        }
         })
         .catch((result) => {
           setLoading(false);
@@ -234,7 +236,9 @@ function MyServices() {
       if (result.isConfirmed) {
         deleteCategories(id).then((result)=> {
           setCount(count + 1);
-          Swal.fire('Deleted!', '', 'success');
+          Swal.fire('Deleted!', '', 'success').then(()=> {
+            window.location.href='/my-services';
+          })
         }).catch((error)=> {
           Swal.fire('Something went wrong!', '', 'danger');
         });
