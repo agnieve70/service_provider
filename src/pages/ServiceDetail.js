@@ -106,6 +106,7 @@ function ServiceDetail() {
             <img src={`https://service-finder-backup.herokuapp.com/file_storage/service_images/${service_detail?.image}`} width={'100%'} />
             <div className="row">
               <div className="col-md-6">
+                <h4>{service_detail?.firstname} {service_detail?.lastname}</h4>
                 <h4>Price: Php. {service_detail?.price}</h4>
               </div>
               <div className="col-md-6">

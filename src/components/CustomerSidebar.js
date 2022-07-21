@@ -28,7 +28,8 @@ function CustomerSidebar() {
                         <a href="/customer-dashboard" className="btn btn-primary py-3"><i className="fa fa-dashboard"></i> Dashboard</a>
                         <a href="/my-service-request" className="btn btn-primary py-3"><i className="fa fa-clipboard"></i> My Service Requests</a>
                         <a href="/service-provider-services" className="btn btn-primary py-3"><i className="fa fa-users"></i> Services</a>
-                        <a href="/customer-services-post" className="btn btn-primary py-3"><i className="fa fa-search"></i> Service Posts</a>
+                        {/* <a href="/customer-services-post" className="btn btn-primary py-3"><i className="fa fa-search"></i> Post Services</a> */}
+                        <a href="/customer-transactions" className="btn btn-primary py-3"><i className="fa fa-file"></i> Transactions</a>
                         <button href="#" onClick={logoutHandler} className="btn btn-primary py-3"><i className="fa fa-sign-out"></i> Logout</button>
                     </div>
                 </div>

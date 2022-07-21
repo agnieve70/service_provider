@@ -14,6 +14,7 @@ import SpCustomerServicePost from "./pages/SpCustomerServicePost";
 import SpServiceDetail from "./pages/SpServiceDetail";
 import SpCustomerTransaction from "./pages/SpCustomerTransaction";
 import SuccessPage from "./pages/SuccessPage";
+import CustomerTransactions from "./pages/CustomerTransactions";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/my-services" element={<MyServices />} />
                 <Route path="/success-page/:id" element={<SuccessPage />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/customer-transactions" element={<CustomerTransactions />} />
                 <Route
                     path="*"
                     element={
