@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from "react";
 import MyServiceCard from "../components/MyServiceCard";
@@ -358,6 +359,11 @@ function MyServices() {
                   description={e.description}
                   action={
                     <>
+                    <a href={`/sp-service-detail/${e.id}`}
+                        className="btn btn-primary btn-sm me-1"
+                      >
+                        <i className="fa fa-eye"></i>
+                      </a>
                       <button
                         onClick={editHandler.bind(this, e)}
                         className="btn btn-warning btn-sm me-1"

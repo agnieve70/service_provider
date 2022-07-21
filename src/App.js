@@ -11,6 +11,7 @@ import SpDashboard from "./pages/SpDashboard";
 import MyServices from "./pages/MyServices";
 import Signup from "./pages/Signup";
 import SpCustomerServicePost from "./pages/SpCustomerServicePost";
+import SpServiceDetail from "./pages/SpServiceDetail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/customer-dashboard" element={<CustomerDashboardPage />} />
                 <Route path="/service-detail/:id" element={<ServiceDetail />} />
+                <Route path="/sp-service-detail/:id" element={<SpServiceDetail />} />
                 <Route path="/customer-services/:id" element={<ServiceDetail />} />
                 <Route path="/service-provider-services" element={<ServiceProviderServices />} />
                 <Route path="/customer-services-post" element={<CustomerServicePost />} />
