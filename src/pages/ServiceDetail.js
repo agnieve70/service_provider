@@ -109,7 +109,7 @@ function ServiceDetail() {
                 <h4>Price: Php. {service_detail?.price}</h4>
               </div>
               <div className="col-md-6">
-                <a href="/hire-service/1" className="btn btn-warning float-end mt-2 text-bold"><b>HIRE SERVICE</b></a>
+                <a href={`/hire-service/${service_detail.id}`} className="btn btn-warning float-end mt-2 text-bold"><b>HIRE SERVICE</b></a>
               </div>
             </div>
             <h6><span className="badge bg-primary">{service_detail?.category_id}</span></h6>

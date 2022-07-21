@@ -26,7 +26,7 @@ function SpSidebar() {
                     <div className="d-grid gap-2 mt-2">
                         <a href="/sp-dashboard" className="btn btn-primary py-3"><i className="fa fa-dashboard"></i> Dashboard</a>
                         <a href="/my-services" className="btn btn-primary py-3"><i className="fa fa-clipboard"></i> My Services</a>
-                        <a href="/customer-transaction" className="btn btn-primary py-3"><i className="fa fa-users"></i> Customer Transaction</a>
+                        <a href="/sp-customer-transaction" className="btn btn-primary py-3"><i className="fa fa-users"></i> Customer Transaction</a>
                         <a href="/sp-customer-services-post" className="btn btn-primary py-3"><i className="fa fa-search"></i> Customer Posts</a>
                         <button href="#" onClick={logoutHandler} className="btn btn-primary py-3"><i className="fa fa-sign-out"></i> Logout</button>
                     </div>

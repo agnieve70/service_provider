@@ -12,6 +12,8 @@ import MyServices from "./pages/MyServices";
 import Signup from "./pages/Signup";
 import SpCustomerServicePost from "./pages/SpCustomerServicePost";
 import SpServiceDetail from "./pages/SpServiceDetail";
+import SpCustomerTransaction from "./pages/SpCustomerTransaction";
+import SuccessPage from "./pages/SuccessPage";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
                 <Route path="/customer-dashboard" element={<CustomerDashboardPage />} />
                 <Route path="/service-detail/:id" element={<ServiceDetail />} />
                 <Route path="/sp-service-detail/:id" element={<SpServiceDetail />} />
+                <Route path="/sp-customer-transaction" element={<SpCustomerTransaction />} />
                 <Route path="/customer-services/:id" element={<ServiceDetail />} />
                 <Route path="/service-provider-services" element={<ServiceProviderServices />} />
                 <Route path="/customer-services-post" element={<CustomerServicePost />} />
@@ -31,6 +34,7 @@ function App() {
                 <Route path="/my-service-request" element={<MyServiceRequest />} />
                 <Route path="/sp-dashboard" element={<SpDashboard />} />
                 <Route path="/my-services" element={<MyServices />} />
+                <Route path="/success-page/:id" element={<SuccessPage />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route
                     path="*"

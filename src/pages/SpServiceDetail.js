@@ -111,7 +111,7 @@ function SpServiceDetail() {
                 <h4>Price: Php. {service_detail?.price}</h4>
               </div>
               <div className="col-md-6">
-                <a href="/hire-service/1" className="btn btn-warning float-end mt-2 text-bold"><b>HIRE SERVICE</b></a>
+                <a href="/sp-customer-transaction" className="btn btn-primary float-end mt-2 text-bold"><b>View Transactions</b></a>
               </div>
             </div>
             <h6><span className="badge bg-primary">{service_detail?.category_id}</span></h6>
