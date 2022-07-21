@@ -56,12 +56,9 @@ function LoginPage() {
       if (result.user.role === "customer") {
         window.location.href = "/customer-dashboard";
       } else if (
-        result.user.role === "service provider" &&
-        isMobile === false
+        result.user.role === "service provider"
       ) {
         window.location.href = "/sp-dashboard";
-      } else {
-        window.location.href = "/admin-dashboard";
       }
     } catch (error) {
       setError(error);
