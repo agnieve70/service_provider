@@ -22,6 +22,7 @@ async function login(email, password) {
       body: JSON.stringify({ email, password }),
       headers: {
         "Content-Type": "application/json",
+        "Accept": "application/json",
       },
     }
   );
