@@ -6,6 +6,8 @@ import mapboxgl from "!mapbox-gl"; /* eslint import/no-webpack-loader-syntax: of
 mapboxgl.accessToken = mapbox_key;
 
 function populateMarkers(map, geojson ,isClickable) {
+  console.log(geojson);
+
   for (const marker of geojson.features) {
     // Create a DOM element for each marker.
     const el = document.createElement("div");
@@ -46,7 +48,8 @@ function MapContent(props) {
         },
         geometry: {
           type: "Point",
-          coordinates: [props.longitude, props.latitude],
+          coordinates: [!props.longitude ? 125.352398  : props.longitude, 
+        !props.latitude ? 6.757509 : props.latitude],
         },
       },
     ],
@@ -57,20 +60,15 @@ function MapContent(props) {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [props.longitude, props.latitude],
+      center: [!props.longitude ? 125.352398  : props.longitude, 
+        !props.latitude ? 6.757509 : props.latitude],
       zoom: 14,
     });
 
-    map.current.on('click', function(e) {
-        var coordinates = e.lngLat;
-        props.setMyLat(coordinates.lat);
-        props.setMyLng(coordinates.lng);
-
-        new mapboxgl.Popup()
-          .setLngLat(coordinates)
-          .setHTML('you clicked here: <br/>' + coordinates)
-          .addTo(map.current);
-      });
+    if(geojson){
+      console.log("naay geojson");
+      populateMarkers(map, geojson);
+    }
 
   }, []);
 

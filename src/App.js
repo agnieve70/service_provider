@@ -15,6 +15,7 @@ import SpServiceDetail from "./pages/SpServiceDetail";
 import SpCustomerTransaction from "./pages/SpCustomerTransaction";
 import SuccessPage from "./pages/SuccessPage";
 import CustomerTransactions from "./pages/CustomerTransactions";
+import SpCustomerTransactionDetail from "./pages/SpCustomerTransactionDetail";
 
 function App() {
   return (
@@ -26,8 +27,9 @@ function App() {
                 <Route path="/service-detail/:id" element={<ServiceDetail />} />
                 <Route path="/sp-service-detail/:id" element={<SpServiceDetail />} />
                 <Route path="/sp-customer-transaction" element={<SpCustomerTransaction />} />
+                <Route path="/sp-customer-transaction-detail/:id" element={<SpCustomerTransactionDetail />} />
                 <Route path="/customer-services/:id" element={<ServiceDetail />} />
-                <Route path="/service-provider-services" element={<ServiceProviderServices />} />
+                <Route path="/service-provider-services" element={<ServiceProviderServices />} />   
                 <Route path="/customer-services-post" element={<CustomerServicePost />} />
                 <Route path="/sp-customer-services-post" element={<SpCustomerServicePost />} />
                 <Route path="/hire-service/:id" element={<HireService />} />
