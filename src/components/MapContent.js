@@ -65,6 +65,17 @@ function MapContent(props) {
       zoom: 14,
     });
 
+    map.current.on('click', function(e) {
+      var coordinates = e.lngLat;
+      props.setMyLat(coordinates.lat);
+      props.setMyLng(coordinates.lng);
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML('you clicked here: <br/>' + coordinates)
+        .addTo(map.current);
+    });
+
     if(geojson){
       console.log("naay geojson");
       populateMarkers(map, geojson);
