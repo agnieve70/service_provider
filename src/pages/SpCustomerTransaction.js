@@ -67,7 +67,8 @@ function SpCustomerTransaction() {
                   <td>{e.status}</td>
                   <td>{e.created_at}</td>
                   <td>  
-                    <button onClick={detailHandler.bind(this, e.id)} className="btn btn-primary btn-sm"><i className="fa fa-eye"></i></button>
+                    {e.status === 'Success' ? <button onClick={detailHandler.bind(this, e.id)} className="btn btn-primary btn-sm"><i className="fa fa-eye"></i></button> 
+                    : e.status === 'Done' ? <span className="badge bg-success">Transaction Done</span> : <span className="badge bg-warning">Payment Pending</span>}
                   </td>
                 </tr>)}
             </tbody>
