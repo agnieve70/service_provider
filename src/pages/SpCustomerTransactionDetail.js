@@ -26,10 +26,37 @@ async function getSearchService(id) {
   return data.data;
 }
 
+async function updateService(id, image) {
+  let bodyFormData = new FormData();
+  bodyFormData.append("id", id);
+  bodyFormData.append("image", image);
+
+  const res = await fetch(
+    "https://service-finder-backup.herokuapp.com/api/transaction/update",
+    {
+      method: "POST",
+      body: bodyFormData,
+      headers: {
+        Authorization: `Bearer ${auth_token}`,
+        Accept: `application/json`,
+      },
+    }
+  );
+
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.message || "Something wnt wrong");
+  }
+
+  return data;
+}
+
 function SpCustomerTransactionDetail() {
+  const [image, setImage] = useState();
+
   let { id } = useParams();
 
-  const [detail,  setDetail] = useState([]);
+  const [detail,  setDetail] = useState({});
 
   useEffect(()=> {
     getSearchService(id).then((result) => {
@@ -40,7 +67,11 @@ function SpCustomerTransactionDetail() {
 
   function submitHandler(e){
     e.preventDefault();
-    
+    updateService(id, image).then((result) => {
+      if(result){
+        window.location.href='/sp-customer-transaction';
+      }
+    });
   }
 
   return (
@@ -52,18 +83,25 @@ function SpCustomerTransactionDetail() {
         <div className="card p-3">
           <h4>Service: {detail?.service}</h4>
           <h4>Price: {detail?.price}</h4>
-        <MapboxContent
-            setMyLat={detail ? parseFloat(detail?.latitude): 	6.757509}
-            setMyLng={detail ? parseFloat(detail?.longtitude) : 	125.352398 }
-            latitude={detail ? parseFloat(detail?.latitude) : 6.757509}
-            longitude={detail ? parseFloat(detail?.longtitude) : 	125.352398}
-          />
+        {
+          Object.keys(detail).length !== 0 && <MapboxContent
+          setMyLat={parseFloat(detail?.latitude)}
+          setMyLng={parseFloat(detail?.longtitude)}
+          latitude={parseFloat(detail?.latitude)}
+          longitude={parseFloat(detail?.longtitude)}
+        />
+        }
         <form action="" onSubmit={submitHandler}>
           <div className="form-group">
-            <label htmlFor="output">Upload File</label>
-            <input type="file" id="output" className="form-control" />
-            <button type="submit" className="mt-2 btn btn-primary">Service Done</button>
-          </div>
+                <label htmlFor="image">Image</label>
+                <input
+                  className="form-control"
+                  type="file"
+                  id="image"
+                  onChange={(e) => setImage(e.target.files[0])}
+                />
+              </div>
+              <button onClick={submitHandler} className="mt-2 btn btn-primary">Service Done</button>
         </form>
         </div>
       </div>
