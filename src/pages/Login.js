@@ -122,14 +122,14 @@ function LoginPage() {
                     LOGIN
                   </button>
                   <span>Wants to be a member? <a href="/signup">Click Here</a></span>
-                  {isMobile ? (
+                  {/* {isMobile ? (
                     <p>
                       Not a member?
                       <LinkContainer to="/register">
                         <a>Register</a>
                       </LinkContainer>
                     </p>
-                  ) : null}
+                  ) : null} */}
                 </div>
               </form>
             </div>
