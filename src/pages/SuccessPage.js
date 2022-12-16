@@ -5,7 +5,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function updateTransaction(code) {
     const response = await fetch(
-      "https://service-finder-backup.herokuapp.com/api/payment/update",
+      "https://arobobackend-production.up.railway.app/api/payment/update",
       {
         method: "POST",
         body: JSON.stringify({ code }),

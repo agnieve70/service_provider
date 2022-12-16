@@ -32,7 +32,7 @@ async function addUser(
   bodyFormData.append("contact", contactNumber);
 
   const res = await fetch(
-    "https://service-finder-backup.herokuapp.com/api/register",
+    "https://arobobackend-production.up.railway.app/api/register",
     {
       method: "POST",
       body: bodyFormData,

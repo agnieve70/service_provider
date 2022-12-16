@@ -6,7 +6,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function getSearchServices() {
   const response = await fetch(
-    "https://service-finder-backup.herokuapp.com/api/transactions/by-service-provider",
+    "https://arobobackend-production.up.railway.app/api/transactions/by-service-provider",
     {
       headers: {
         "Content-Type": "application/json",
