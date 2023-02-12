@@ -8,7 +8,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function totalCustomers() {
   const response = await fetch(
-    "http://srvcprvdr.agsys.online/api/total-number",
+    "https://srvcprvdr.agsys.online/api/total-number",
     {
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ async function totalCustomers() {
 
 async function getServices() {
   const response = await fetch(
-    "http://srvcprvdr.agsys.online/api/services",
+    "https://srvcprvdr.agsys.online/api/services",
     {
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ async function getServices() {
 
 async function getSearchServices(search, field) {
   const response = await fetch(
-    "http://srvcprvdr.agsys.online/api/service/search",
+    "https://srvcprvdr.agsys.online/api/service/search",
     {
       method: "POST",
       body: JSON.stringify({
@@ -185,7 +185,7 @@ function CustomerDashboardPage() {
             {services.length > 0 ? (
               services.map((e) => (
                 <ServiceCard
-                  image={`http://srvcprvdr.agsys.online/file_storage/service_images/${e.image}`}
+                  image={`https://srvcprvdr.agsys.online/file_storage/service_images/${e.image}`}
                   title={e.service}
                   price={e.price}
                   description={e.description}

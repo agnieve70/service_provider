@@ -5,7 +5,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function getNotifications() {
   const response = await fetch(
-    "http://srvcprvdr.agsys.online/api/transactions/notification",
+    "https://srvcprvdr.agsys.online/api/transactions/notification",
     {
       headers: {
         "Content-Type": "application/json",

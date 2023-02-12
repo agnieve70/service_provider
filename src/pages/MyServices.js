@@ -12,7 +12,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function deleteCategories(id) {
   const response = await fetch(
-    `http://srvcprvdr.agsys.online/services/delete/${id}`,
+    `https://srvcprvdr.agsys.online/services/delete/${id}`,
     {
       method:'DELETE',
       headers: {
@@ -32,7 +32,7 @@ async function deleteCategories(id) {
 
 async function getCategories() {
   const response = await fetch(
-    "http://srvcprvdr.agsys.online/api/service_categories",
+    "https://srvcprvdr.agsys.online/api/service_categories",
     {
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ async function getCategories() {
 
 async function getMyServices() {
   const response = await fetch(
-    "http://srvcprvdr.agsys.online/api/my-services",
+    "https://srvcprvdr.agsys.online/api/my-services",
     {
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,7 @@ async function addService(category, store, service, price, description, image) {
   bodyFormData.append("ratings", "0");
 
   const res = await fetch(
-    "http://srvcprvdr.agsys.online/api/services/create",
+    "https://srvcprvdr.agsys.online/api/services/create",
     {
       method: "POST",
       body: bodyFormData,
@@ -118,7 +118,7 @@ async function updateService(
   bodyFormData.append("image", image);
 
   const res = await fetch(
-    "http://srvcprvdr.agsys.online/api/services/update",
+    "https://srvcprvdr.agsys.online/api/services/update",
     {
       method: "POST",
       body: bodyFormData,
@@ -353,7 +353,7 @@ function MyServices() {
             {services.length > 0 &&
               services.map((e) => (
                 <MyServiceCard
-                  image={`http://srvcprvdr.agsys.online/file_storage/service_images/${e.image}`}
+                  image={`https://srvcprvdr.agsys.online/file_storage/service_images/${e.image}`}
                   title={e.service}
                   price={e.price}
                   description={e.description}

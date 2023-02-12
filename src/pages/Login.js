@@ -16,7 +16,7 @@ if (
 
 async function login(email, password) {
   const response = await fetch(
-    "http://srvcprvdr.agsys.online/api/login",
+    "https://srvcprvdr.agsys.online/api/login",
     {
       method: "POST",
       body: JSON.stringify({ email, password }),

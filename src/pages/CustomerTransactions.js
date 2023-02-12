@@ -6,7 +6,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function getTransactions() {
     const response = await fetch(
-      "http://srvcprvdr.agsys.online/api/transaction/customer",
+      "https://srvcprvdr.agsys.online/api/transaction/customer",
       {
         headers: {
           "Content-Type": "application/json",

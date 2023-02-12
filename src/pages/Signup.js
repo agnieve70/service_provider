@@ -32,7 +32,7 @@ async function addUser(
   bodyFormData.append("contact", contactNumber);
 
   const res = await fetch(
-    "http://srvcprvdr.agsys.online/api/register",
+    "https://srvcprvdr.agsys.online/api/register",
     {
       method: "POST",
       body: bodyFormData,
