@@ -5,7 +5,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function getNotifications() {
   const response = await fetch(
-    "https://arobobackend-production.up.railway.app/api/transactions/notification",
+    "http://srvcprvdr.agsys.online/api/transactions/notification",
     {
       headers: {
         "Content-Type": "application/json",

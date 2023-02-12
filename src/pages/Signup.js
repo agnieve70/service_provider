@@ -32,7 +32,7 @@ async function addUser(
   bodyFormData.append("contact", contactNumber);
 
   const res = await fetch(
-    "https://arobobackend-production.up.railway.app/api/register",
+    "http://srvcprvdr.agsys.online/api/register",
     {
       method: "POST",
       body: bodyFormData,

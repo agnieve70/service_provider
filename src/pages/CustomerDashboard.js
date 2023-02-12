@@ -8,7 +8,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function totalCustomers() {
   const response = await fetch(
-    "https://arobobackend-production.up.railway.app/api/total-number",
+    "http://srvcprvdr.agsys.online/api/total-number",
     {
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ async function totalCustomers() {
 
 async function getServices() {
   const response = await fetch(
-    "https://arobobackend-production.up.railway.app/api/services",
+    "http://srvcprvdr.agsys.online/api/services",
     {
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ async function getServices() {
 
 async function getSearchServices(search, field) {
   const response = await fetch(
-    "https://arobobackend-production.up.railway.app/api/service/search",
+    "http://srvcprvdr.agsys.online/api/service/search",
     {
       method: "POST",
       body: JSON.stringify({
@@ -185,7 +185,7 @@ function CustomerDashboardPage() {
             {services.length > 0 ? (
               services.map((e) => (
                 <ServiceCard
-                  image={`https://arobobackend-production.up.railway.app/file_storage/service_images/${e.image}`}
+                  image={`http://srvcprvdr.agsys.online/file_storage/service_images/${e.image}`}
                   title={e.service}
                   price={e.price}
                   description={e.description}

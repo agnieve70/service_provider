@@ -9,7 +9,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function createInvoice(service_id, latitude, longitude) {
   const response = await fetch(
-    `https://arobobackend-production.up.railway.app/api/invoice/create`,
+    `http://srvcprvdr.agsys.online/api/invoice/create`,
     {
       method: "POST",
       body: JSON.stringify({ service_id, latitude, longitude }),

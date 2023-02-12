@@ -6,7 +6,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function getTransactions() {
     const response = await fetch(
-      "https://arobobackend-production.up.railway.app/api/transaction/customer",
+      "http://srvcprvdr.agsys.online/api/transaction/customer",
       {
         headers: {
           "Content-Type": "application/json",

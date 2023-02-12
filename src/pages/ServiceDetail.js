@@ -8,7 +8,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function createComment(service_id, comment) {
   const response = await fetch(
-    "https://arobobackend-production.up.railway.app/api/comment/create",
+    "http://srvcprvdr.agsys.online/api/comment/create",
     {
       method: "POST",
       body: JSON.stringify({ service_id, comment }),
@@ -29,7 +29,7 @@ async function createComment(service_id, comment) {
 
 async function getService(id) {
   const response = await fetch(
-    `https://arobobackend-production.up.railway.app/api/service/${id}`,
+    `http://srvcprvdr.agsys.online/api/service/${id}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ async function getService(id) {
 
 async function getComments(id) {
   const response = await fetch(
-    `https://arobobackend-production.up.railway.app/api/comments/${id}`,
+    `http://srvcprvdr.agsys.online/api/comments/${id}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -103,7 +103,7 @@ function ServiceDetail() {
         <div className="row">
           <div className="col-md-6">
             <h1 className="text-secondary">{service_detail?.service}</h1>
-            <img src={`https://arobobackend-production.up.railway.app/file_storage/service_images/${service_detail?.image}`} width={'100%'} />
+            <img src={`http://srvcprvdr.agsys.online/file_storage/service_images/${service_detail?.image}`} width={'100%'} />
             <div className="row">
               <div className="col-md-6">
                 <h4>{service_detail?.firstname} {service_detail?.lastname}</h4>

@@ -8,7 +8,7 @@ const auth_token = localStorage.getItem("auth_token");
 
 async function getServices() {
     const response = await fetch(
-      "https://arobobackend-production.up.railway.app/api/services",
+      "http://srvcprvdr.agsys.online/api/services",
       {
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +27,7 @@ async function getServices() {
 
 async function totalCustomers() {
 
-    const response = await fetch("https://arobobackend-production.up.railway.app/api/total-number", {
+    const response = await fetch("http://srvcprvdr.agsys.online/api/total-number", {
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${auth_token}`
@@ -96,7 +96,7 @@ function SpDashboard() {
                     <div className="row row-cols-1 row-cols-md-3 g-3">
                         {services.length > 0 ? services.map(e => 
                         <MyServiceCard
-                        image={`https://arobobackend-production.up.railway.app/file_storage/service_images/${e.image}`}
+                        image={`http://srvcprvdr.agsys.online/file_storage/service_images/${e.image}`}
                         title={e.service}
                         price={e.price}
                         description={e.description}
